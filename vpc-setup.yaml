@@ -156,7 +156,7 @@
         - NatGW.nat_gateway_id
         - Ansible_IGW_RouteTable.route_table.id
         - Ansible_NAtGateway_route_table.route_table.id
-      set_fact:
+    - set_fact:
           vpcid: "{{vpcout.vpc.id}}"
           pubsubid1: "{{pubsubpout1.subnet.id}}"
           pubsubid2: "{{pubsubpout2.subnet.id}}"
@@ -169,5 +169,9 @@
           IgwRouteTable: "{{Ansible_IGW_RouteTable.route_table.id}}"
           NatGateWayRouteTable: "{{Ansible_NAtGateway_route_table.route_table.id}}"
           cacheable: yes
+    - name: Copying variable into file
+      copy:
+        content: "vpcid: {{vpcout.vpc.id}}\npubsubid1: {{pubsubpout1.subnet.id}}\npubsubid2: {{pubsubpout2.subnet.id}}\npubsubid3: {{pubsubpout3.subnet.id}}\nprisubid1: {{prisubpout.subnet.id}}\nprisubid3: {{privatesubpout3.subnet.id}}\nnatgatewayID: {{NatGW.nat_gateway_id}}\nIGGateID: {{igw.gateway_id}}\nIgwRouteTable: {{Ansible_IGW_RouteTable.route_table.id}}\n NatGateWayRouteTable: {{Ansible_NAtGateway_route_table.route_table.id}}"
+        dest: /vars
 
 
