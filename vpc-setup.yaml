@@ -98,8 +98,7 @@
           tag1: Ansible_vpc_IGW
         resource_tags:
           name: Ansible_VPC_IGW
-      register:
-        var: igw
+      register: igw
     - name: Route Table for IGW
       ec2_vpc_route_table:
         vpc_id: "{{vpcout.vpc.id}}"
