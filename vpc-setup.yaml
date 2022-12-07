@@ -28,7 +28,65 @@
         map_public: true
         resource_tags:
           Name: FirstSubnet
-      register: pubsubpout
+      register: pubsubpout1
 
+    - name: Creating VPC subnet2
+      ec2_vpc_subnet:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{Region}}"
+        state:  "{{state}}"
+        az: "{{Zone2}}"
+        cidr: "{{pubsubCIDR2}}"
+        map_public: true
+        resource_tags:
+          Name: 2ndSubnet
+      register: pubsubpout2
 
+    - name: Creating VPC private subnet3
+      ec2_vpc_subnet:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{Region}}"
+        state:  "{{state}}"
+        az: "{{Zone3}}"
+        cidr: "{{PriSubCidr3}}"
+        map_public: true
+        resource_tags:
+          Name: 3rdprivateSubnet
+      register: privatesubpout3
+
+    - name: Creating VPC private subnet2
+      ec2_vpc_subnet:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{Region}}"
+        state:  "{{state}}"
+        az: "{{Zone3}}"
+        cidr: "{{pubsubCIDR3}}"
+        map_public: true
+        resource_tags:
+          Name: 3rdSubnet
+      register: pubsubpout3
+
+    - name: Creating VPC Private subnets23
+      ec2_vpc_subnet:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{Region}}"
+        state:  "{{state}}"
+        az: "{{Zone1}}"
+        cidr: "{{PriSubCidr1}}"
+        map_public: true
+        resource_tags:
+          Name: FirstPriSubnet
+      register: prisubpout
+
+    - name: Creating VPC subnets
+      ec2_vpc_subnet:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{Region}}"
+        state:  "{{state}}"
+        az: "{{Zone2}}"
+        cidr: "{{PriSubCidr2}}"
+        map_public: true
+        resource_tags:
+          Name: 2ndprivSubnet
+      register: privsubpout2
       
