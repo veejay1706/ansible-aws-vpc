@@ -9,7 +9,7 @@
       ec2_vpc_net:
        name: "{{Ansible_vpc}}"
        cidr_blocks: "{{VPCCidr}}"
-       tenacy: default
+       tenacy: "default"
        dns_support: true
        dns_hostnames: true
        region: "{{Region}}"
