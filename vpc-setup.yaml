@@ -90,3 +90,10 @@
           Name: 2ndprivSubnet
       register: privsubpout2
       
+    - name: Internet gateway Setup
+      ec2_vpc_igw:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{Region}}"
+        tags:
+          tag1: Ansible_vpc_IGW
+          
