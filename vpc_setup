@@ -1,0 +1,26 @@
+VpcName: "Ansible_Vpc"
+
+# VPC CIDR details
+
+VPCCidr: "172.20.0.0/16"
+
+# VPC Subnets
+
+pubsubCIDR1: "172.20.1.0/24"
+pubsubCIDR2: "172.20.2.0/24"
+pubsubCIDR3: "172.20.3.0/24"
+PriSubCidr1: "172.20.4.0/24"
+PriSubCidr2: "172.20.5.0/24"
+PriSubCidr3: "172.20.6.0/24"
+
+# VPC Region
+
+Region: "us-east-2"
+
+#AZ details
+
+Zone1: "us-east-2a"
+Zone2: "us-east-2b"
+Zone3: "us-east-2c"
+
+state: present
