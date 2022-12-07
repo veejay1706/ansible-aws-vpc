@@ -128,3 +128,21 @@
     - debug:
           var: NatGW
 
+    - name: set up private subnet route table
+      ec2_vpc_route_table:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{Region}}"
+        tags:
+          name: Vprofile purivate RoutTable
+        subnets:
+          - "{{prisubpout.subnet.id}}"
+          - "{{privsubpout2.subnet.id}}"
+          - "{{privatesubpout3.subnet.id}}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{NatGW.nat_gateway_id}}"
+      register: Ansible_NAtGateway_route_table
+
+    - debug:
+        var: Ansible_NAtGateway_route_table
+
