@@ -96,4 +96,25 @@
         region: "{{Region}}"
         tags:
           tag1: Ansible_vpc_IGW
-          
+        resource_tags:
+          name: Ansible_VPC_IGW
+      register:
+        var: igw
+    - name: Route Table for IGW
+      ec2_vpc_route_table:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{Region}}"
+        tags:
+          name: Vprofile pubRoutTable
+        subnets:
+          - "{{pubsubpout1.subnet.id}}"
+          - "{{pubsubCIDR2.subnet.id}}"
+          - "{{pubsubCIDR3.subnet.id}}"
+        routes:
+          dest: 0.0.0.0/0
+          gateway_id: "{{igw.gateway_id}}"
+      register: Ansible_IGW_RouteTable
+
+    - debug:
+
+       var: Ansible_IGW_RouteTable
