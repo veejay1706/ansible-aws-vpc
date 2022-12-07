@@ -120,8 +120,6 @@
     - name: Nat GateWay setup
       ec2_vpc_nat_gateway:
         region: "{{Region}}"
-        tags:
-          name: Ansible Natgateway
         subnet_id: "{{pubsubpout1.subnet.id}}"
         wait: true
         if_exist_do_not_create: true
