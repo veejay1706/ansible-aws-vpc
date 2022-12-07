@@ -115,5 +115,15 @@
       register: Ansible_IGW_RouteTable
 
     - debug:
-
        var: Ansible_IGW_RouteTable
+
+    - name: Nat GateWay setup
+      ec2_vpc_nat_gateway:
+        region: "{{Region}}"
+        tags:
+          name: Ansible Natgateway
+        subnet_id: "{{pubsubpout1.subnet.id}}"
+        wait: yes
+        if_exist_do_not_create: true
+      register: NatGW
+
