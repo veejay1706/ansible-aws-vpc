@@ -149,11 +149,25 @@
         - pubsubpout1.subnet.id
         - pubsubpout2.subnet.id
         - pubsubpout3.subnet.id
+        - prisubpout.subnet.id
         - privsubpout2.subnet.id
         - privatesubpout3.subnet.id
         - igw.gateway_id
         - NatGW.nat_gateway_id
         - Ansible_IGW_RouteTable.route_table.id
         - Ansible_NAtGateway_route_table.route_table.id
+      set_fact:
+          vpcid: "{{vpcout.vpc.id}}"
+          pubsubid1: "{{pubsubpout1.subnet.id}}"
+          pubsubid2: "{{pubsubpout2.subnet.id}}"
+          pubsubid3: "{{pubsubpout3.subnet.id}}"
+          prisubid1: "{{prisubpout.subnet.id}}"
+          prisubid2: "{{privsubpout2.subnet.id}}"
+          prisubid3: "{{privatesubpout3.subnet.id}}"
+          natgatewayID: "{{NatGW.nat_gateway_id}}"
+          IGGateID: "{{igw.gateway_id}}"
+          IgwRouteTable: "{{Ansible_IGW_RouteTable.route_table.id}}"
+          NatGateWayRouteTable: "{{Ansible_NAtGateway_route_table.route_table.id}}"
+
 
 
