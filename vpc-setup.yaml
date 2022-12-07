@@ -143,7 +143,7 @@
       register: Ansible_NAtGateway_route_table
 
     - debug:
-        var: ""{{item}}"
+        var: "{{item}}"
       loop:
         - vpcout.vpc.id
         - pubsubpout1.subnet.id
