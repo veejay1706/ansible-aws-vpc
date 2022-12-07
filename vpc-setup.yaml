@@ -107,8 +107,8 @@
           name: Vprofile pubRoutTable
         subnets:
           - "{{pubsubpout1.subnet.id}}"
-          - "{{pubsubCIDR2.subnet.id}}"
-          - "{{pubsubCIDR3.subnet.id}}"
+          - "{{pubsubpout2.subnet.id}}"
+          - "{{pubsubpout3.subnet.id}}"
         routes:
           dest: 0.0.0.0/0
           gateway_id: "{{igw.gateway_id}}"
