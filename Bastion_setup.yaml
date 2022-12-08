@@ -50,3 +50,6 @@
         vpc_subnet_id: "{{pubsubid1}}"
         security_group: "{{bastion_sg_details.group_id}}"
       register: final_bastion_instance_output
+
+    - debug:
+        var: final_bastion_instance_output
