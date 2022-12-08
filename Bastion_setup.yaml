@@ -18,7 +18,7 @@
         content: "{{Bastion_Key.key.private_key}}"
         dest: "./bastion-key.pem"
         mode: 0600
-      when: Bastion_key.changed
+      when: Bastion_Key.changed
 
     - name: example using security group rule descriptions
       amazon.aws.ec2_group:
