@@ -11,7 +11,7 @@
     - name: create ec2 Vprofile key
       ec2_key:
           name: Vprofile-bastion-key
-          region: "{{Region}}"
+          region: "{{region}}"
       register: Bastion_Key
     - name: Copying private key pair
       copy:
