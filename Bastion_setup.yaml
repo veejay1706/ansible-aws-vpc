@@ -25,7 +25,7 @@
         name: bastion SG
         description: sg with rule descriptions
         vpc_id: "{{vpcid}}"
-        region: "{{region}}"
+        region: "{{regi}}"
         rules:
           - proto: tcp
             from_port: 22
