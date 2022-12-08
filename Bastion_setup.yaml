@@ -46,11 +46,7 @@
           name: "Numbari_Sammyak_jain"
           project: Rishav_ka_halwa
           owner: Rishav
-        exact_count: 1
-        count_tag:
-          name: "Numbari Sammyak jain"
-          project: Rishav_ka_halwa
-          owner: Rishav
+          count: 1
         vpc_subnet_id: "{{pubsubid1}}"
         security_group: "{{bastion_sg_details.group_id}}"
       register: final_bastion_instance_output
