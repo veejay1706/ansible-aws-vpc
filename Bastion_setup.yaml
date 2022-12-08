@@ -53,4 +53,4 @@
           owner: Rishav
         vpc_subnet_id: "{{pubsubid1}}"
         group_id: "{{bastion_sg_details.group_id}}"
-      register: final bastion instance output
+      register: final_bastion_instance_output
