@@ -42,7 +42,7 @@
         instance_type: t2.micro
         wait: yes
         wait_timeout: 300
-        instance_tags:
+        tags:
           name: "Numbari_Sammyak_jain"
           project: Rishav_ka_halwa
           owner: Rishav
@@ -52,5 +52,5 @@
           project: Rishav_ka_halwa
           owner: Rishav
         vpc_subnet_id: "{{pubsubid1}}"
-        group_id: "{{bastion_sg_details.group_id}}"
+        security_group: "{{bastion_sg_details.group_id}}"
       register: final_bastion_instance_output
