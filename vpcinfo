@@ -7,4 +7,4 @@ prisubid3: subnet-098d790490888a01a
 natgatewayID: nat-07695ee930e84dda0
 IGGateID: igw-0db85df6869d46134
 IgwRouteTable: rtb-058c44cef4d1b7c70
- NatGateWayRouteTable: rtb-0cc59fed7b72fd132
+NatGateWayRouteTable: rtb-0cc59fed7b72fd132
