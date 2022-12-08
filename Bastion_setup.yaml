@@ -21,7 +21,7 @@
       when: Bastion_key.changed
 
     - name: example using security group rule descriptions
-      amazon.aws.ec2_security_group:
+      amazon.aws.ec2_group:
         name: bastion SG
         description: sg with rule descriptions
         vpc_id: "{{vpcid}}"
