@@ -29,8 +29,8 @@
         rules:
           - proto: tcp
             from_port: 22
-            to_ports: 22
-            cidr_ip: "{{ MYIP }}"
+            to_port: 22
+            cidr_ip: "{{MYIP}}"
             rule_desc: allow all on port 80
       register: bastion_sg_details
 
