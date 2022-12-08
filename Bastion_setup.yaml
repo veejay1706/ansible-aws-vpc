@@ -3,7 +3,7 @@
   gather_facts: False
   tasks:
     - name: importing variables
-      include_vars: bastion_setup.txt
+      include_vars: bastion_setup
 
     - name: importing VPC info
       include_vars: vpcinfo
