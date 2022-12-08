@@ -1,0 +1,55 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+    - name: importing variables
+      include_vars: bastion_setup.txt
+
+    - name: importing VPC info
+      include_vars: vpcinfo
+
+    - name: create ec2 Vprofile key
+      ec2_key:
+          name: Vprofile-bastion-key
+          region: "{{Region}}"
+      register: Bastion_Key
+    - name: Copying private key pair
+      copy:
+        content: "{{Bastion_Key.key.private_key}}"
+        dest: "./bastion-key.pem"
+        mode: 0600
+      when: Bastion_key.changed
+
+    - name: example using security group rule descriptions
+      amazon.aws.ec2_security_group:
+        name: bastion SG
+        description: sg with rule descriptions
+        vpc_id: "{{vpcid}}"
+        region: "{{Region}}"
+        rules:
+          - proto: tcp
+            from_port: 22
+            to_ports: 22
+            cidr_ip: "{{ MYIP }}"
+            rule_desc: allow all on port 80
+      register: bastion_sg_details
+
+    - name: creating ec2 instances
+      ec2_instance:
+        vpcid: "{{vpcid}}"
+        key_name: Bastion_Key
+        image_id:  "{{bastion_ami}}"
+        instance_type: t2.micro
+        wait: yes
+        wait_timeout: 300
+        instance_tags:
+          name: Numbari Sammyak jain
+          project: Rishav_ka_halwa
+          owner: Rishav
+        exact_count: 1
+        count_tag:
+          name: Numbari Sammyak jain
+          project: Rishav_ka_halwa
+          owner: Rishav
+        vpc_subnet_id: "{{pubsubid1}}"
+        group_id: "{{bastion_sg_details.group_id}}"
