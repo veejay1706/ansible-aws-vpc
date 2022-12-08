@@ -37,19 +37,20 @@
     - name: creating ec2 instances
       ec2_instance:
         key_name: Vprofile-bastion-key
-        image:  "{{bastion_ami}}"
+        image_id:  "{{bastion_ami}}"
         region: "{{region}}"
         instance_type: t2.micro
         wait: yes
         wait_timeout: 300
         instance_tags:
-          name: Numbari_Sammyak_jain
+          name: "Numbari_Sammyak_jain"
           project: Rishav_ka_halwa
           owner: Rishav
         exact_count: 1
         count_tag:
-          name: Numbari Sammyak jain
+          name: "Numbari Sammyak jain"
           project: Rishav_ka_halwa
           owner: Rishav
         vpc_subnet_id: "{{pubsubid1}}"
         group_id: "{{bastion_sg_details.group_id}}"
+      register: final bastion instance output
