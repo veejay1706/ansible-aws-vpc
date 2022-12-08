@@ -36,14 +36,14 @@
 
     - name: creating ec2 instances
       ec2_instance:
-        vpcid: "{{vpcid}}"
-        key_name: Bastion_Key
-        image_id:  "{{bastion_ami}}"
+        key_name: Vprofile-bastion-key
+        image:  "{{bastion_ami}}"
+        region: "{{region}}"
         instance_type: t2.micro
         wait: yes
         wait_timeout: 300
         instance_tags:
-          name: Numbari Sammyak jain
+          name: Numbari_Sammyak_jain
           project: Rishav_ka_halwa
           owner: Rishav
         exact_count: 1
