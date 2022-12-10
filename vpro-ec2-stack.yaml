@@ -24,8 +24,7 @@
       ec2_group:
         name: ELB SG
         region: "{{region}}"
-        vpcid: "{{vpcid}}"
-        purge_rules: no
+        vpc_id: "{{vpcid}}"
       rules:
         - proto: tcp
           from_port: 80
