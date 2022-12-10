@@ -18,7 +18,8 @@
         content: "{{Bastion_Key.key.private_key}}"
         dest: "/home/ubuntu/vprofile_setup/ansible-aws-vpc/bastion-key.pem"
         mode: 0600
-      
+      when: Bastion_Key.changed
+
     - name: example using security group rule descriptions
       amazon.aws.ec2_group:
         name: bastion SG
