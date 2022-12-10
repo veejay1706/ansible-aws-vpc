@@ -171,7 +171,7 @@
           cacheable: yes
     - name: Copying variable into file
       copy:
-        content: "vpcid: {{vpcout.vpc.id}}\npubsubid1: {{pubsubpout1.subnet.id}}\npubsubid2: {{pubsubpout2.subnet.id}}\npubsubid3: {{pubsubpout3.subnet.id}}\nprisubid1: {{prisubpout.subnet.id}}\nprisubid3: {{privatesubpout3.subnet.id}}\nnatgatewayID: {{NatGW.nat_gateway_id}}\nIGGateID: {{igw.gateway_id}}\nIgwRouteTable: {{Ansible_IGW_RouteTable.route_table.id}}\n NatGateWayRouteTable: {{Ansible_NAtGateway_route_table.route_table.id}}"
+        content: "vpcid: {{vpcout.vpc.id}}\npubsubid1: {{pubsubpout1.subnet.id}}\npubsubid2: {{pubsubpout2.subnet.id}}\npubsubid3: {{pubsubpout3.subnet.id}}\nprisubid1: {{prisubpout.subnet.id}}\nprisubid3: {{privatesubpout3.subnet.id}}\nnatgatewayID: {{NatGW.nat_gateway_id}}\nIGGateID: {{igw.gateway_id}}\nIgwRouteTable: {{Ansible_IGW_RouteTable.route_table.id}}\nNatGateWayRouteTable: {{Ansible_NAtGateway_route_table.route_table.id}}"
         dest: vpcinfo
 
 
