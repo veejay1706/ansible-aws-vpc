@@ -53,3 +53,8 @@
 
     - debug:
         var: final_bastion_instance_output
+    - name: insert new entry of bastion SG ID
+      blockinfile:
+        path: ./vpcinfo
+        block: |
+          bastionSGID: {{bastion_sg_details.group_id}}
