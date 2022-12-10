@@ -9,3 +9,6 @@ IGGateID: igw-0db85df6869d46134
 IgwRouteTable: rtb-058c44cef4d1b7c70
 NatGateWayRouteTable: rtb-0cc59fed7b72fd132
 bastionSGID:
+# BEGIN ANSIBLE MANAGED BLOCK
+bastionSGID: sg-0a6353e763debe4af
+# END ANSIBLE MANAGED BLOCK
