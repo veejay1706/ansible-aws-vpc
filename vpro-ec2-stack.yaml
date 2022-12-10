@@ -21,7 +21,7 @@
       when: vprokey_out.changed
 
     - name: load balancer security group
-      ec2_group:
+      ec2_security_group:
         name: ELB SG
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
@@ -33,7 +33,7 @@
       register: ELB_SG_Details
 
     - name: EC2 security group
-      ec2_group:
+      ec2_security_group:
         name: vprostack-sg
         region: "{{region}}"
         vpcid: "{{vpcid}}"
@@ -49,7 +49,7 @@
           cidr_ip: "{{bastionSGID}}"
       register: vprostack_SG_Details
     - name: updating security group with its SG
-      ec2_group:
+      ec2_security_group:
         name: vprostack-sg
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
