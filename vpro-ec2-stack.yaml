@@ -19,3 +19,33 @@
         dest: "./loginkey_vpro.pem"
         mode: 0600
       when: vprokey_out.changed
+
+    - name: load balancer security group
+      ec2_group:
+        name: ELB SG
+        region: "{{region}}"
+        vpcid: "{{vpcid}}"
+        purge_rules: no
+      rules:
+        - proto: tcp
+          from_port: 80
+          to_port: 80
+          cidr_ip: 0.0.0./0
+      register: ELB_SG_Details
+
+    - name: EC2 security group
+      ec2_group:
+        name: EC2 SG
+        region: "{{region}}"
+        vpcid: "{{vpcid}}"
+        purge_rules: no
+      rules:
+        - proto: tcp
+          from_port: 80
+          to_port: 80
+          cidr_ip: "{{ELB_SG_Details.group_id}}"
+        - proto: tcp
+          from_port: 22
+          to_port: 22
+          cidr_ip: "{{bastionSGID}}"
+      register: EC2_SG_Details

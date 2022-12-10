@@ -8,3 +8,4 @@ natgatewayID: nat-01e73deab766336bd
 IGGateID: igw-0db85df6869d46134
 IgwRouteTable: rtb-058c44cef4d1b7c70
 NatGateWayRouteTable: rtb-0cc59fed7b72fd132
+bastionSGID: 
