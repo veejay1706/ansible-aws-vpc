@@ -23,3 +23,7 @@ Zone2: "us-east-2b"
 Zone3: "us-east-2c"
 
 state: present
+
+bastion_ami: "ami-0beaa649c482330f7"
+region: "us-east-2"
+MYIP: "223.233.68.14/32"
