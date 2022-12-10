@@ -16,7 +16,7 @@
     - name: Copying private key pair
       copy:
         content: "{{Bastion_Key.key.private_key}}"
-        dest: "./bastion-key.pem"
+        dest: "/home/ubuntu/vprofile_setup/ansible-aws-vpc/bastion-key.pem"
         mode: 0600
       when: Bastion_Key.changed
 
