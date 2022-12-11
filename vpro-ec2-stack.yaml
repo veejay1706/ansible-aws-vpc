@@ -34,10 +34,10 @@
       register: ELB_SG_Details
     - name: EC2 security group
       ec2_group:
-        name: vprostack_sg
+        name: vprostack_sg1
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
-        purge_rules: no
+
         rules:
           - proto: tcp
             from_port: 80
