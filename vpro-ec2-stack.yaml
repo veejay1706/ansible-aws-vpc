@@ -1,6 +1,6 @@
 - hosts: localhost
   connection: local
-  gather_facts: False
+  gather_facts: false
   tasks:
     - name: importing variables
       include_vars: vpcinfo
@@ -23,6 +23,7 @@
     - name: load balancer security group
       ec2_group:
         name: ELB_SG
+        description: My first ELB to allow port 80 from everywhere
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
         rules:
@@ -30,7 +31,6 @@
             from_port: 80
             to_port: 80
             cidr_ip: 0.0.0.0/0
-            description: My first ELB
       register: ELB_SG_Details
     - name: EC2 security group
       ec2_group:
