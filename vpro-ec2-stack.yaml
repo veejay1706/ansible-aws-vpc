@@ -26,6 +26,7 @@
         description: My first ELB to allow port 80 from everywhere
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
+        purge_rules: no
         rules:
           - proto: tcp
             from_port: 80
@@ -34,10 +35,11 @@
       register: ELB_SG_Details
     - name: EC2 security group
       ec2_group:
-        name: vprostack_sg1
+        name: vprostack_sg
         description: allow ssh and http from elb and bastion
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
+        
         rules:
           - proto: tcp
             from_port: 80
