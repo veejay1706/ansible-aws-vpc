@@ -42,7 +42,8 @@
           - proto: tcp
             from_port: 80
             to_port: 80
-            group_id: "{{ELB_SG_Details.group_id}}"
+            group_id: sg-06deaa395e2e894f7
+
           - proto: tcp
             from_port: 22
             to_port: 22
