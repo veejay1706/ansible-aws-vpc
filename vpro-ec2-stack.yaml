@@ -34,7 +34,7 @@
       register: ELB_SG_Details
     - name: EC2 security group
       ec2_group:
-        name: vprostack-sg
+        name: vprostack_sg
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
         purge_rules: no
