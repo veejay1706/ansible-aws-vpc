@@ -22,7 +22,7 @@
 
     - name: load balancer security group
       ec2_group:
-        name: ELB SG
+        name: ELB_SG
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
         rules:
