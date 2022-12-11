@@ -49,12 +49,4 @@
             to_port: 22
             group_id: sg-0a6353e763debe4af
       register: vprostack_SG_Details
-    - name: updating security group with its SG
-      ec2_group:
-        name: vprostack-sg
-        region: "{{region}}"
-        vpc_id: "{{vpcid}}"
-        purge_rules: no
-        rules:
-          - proto: all
-            group_id: "{{vprostack_SG_Details.group_id}}"
+
