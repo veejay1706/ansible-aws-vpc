@@ -1,0 +1,25 @@
+    - name: EC2 security group
+      ec2_group:
+        name: vprostack-sg
+        region: "{{region}}"
+        vpcid: "{{vpcid}}"
+        purge_rules: no
+      rules:
+          - proto: tcp
+            from_port: 80
+            to_port: 80
+            cidr_ip: "{{ELB_SG_Details.group_id}}"
+          - proto: tcp
+            from_port: 22
+            to_port: 22
+            cidr_ip: "{{bastionSGID}}"
+      register: vprostack_SG_Details
+    - name: updating security group with its SG
+      ec2_group:
+        name: vprostack-sg
+        region: "{{region}}"
+        vpc_id: "{{vpcid}}"
+        purge_rules: no
+        rules:
+          - proto: all
+            group_id: "{{vprostack_SG_Details.group_id}}"
