@@ -47,7 +47,7 @@
             from_port: 22
             to_port: 22
             cidr_ip: "{{bastionSGID}}"
-            register: vprostack_SG_Details
+      register: vprostack_SG_Details
     - name: updating security group with its SG
       ec2_group:
         name: vprostack-sg
