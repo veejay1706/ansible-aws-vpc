@@ -36,7 +36,7 @@
       ec2_group:
         name: vprostack-sg
         region: "{{region}}"
-        vpcid: "{{vpcid}}"
+        vpc_id: "{{vpcid}}"
         purge_rules: no
         rules:
           - proto: tcp
