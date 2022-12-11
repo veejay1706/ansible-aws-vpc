@@ -30,6 +30,7 @@
             from_port: 80
             to_port: 80
             cidr_ip: 0.0.0.0/0
+            description: My first ELB
       register: ELB_SG_Details
     - name: EC2 security group
       ec2_group:
