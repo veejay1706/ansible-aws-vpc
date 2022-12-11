@@ -80,6 +80,8 @@
         security_group: "{{vprostack_SG_Details.group_id}}"
         vpc_subnet_id: "{{prisubid1}}"
       register: nginx_output
+    - debug:
+        var: nginx_output
     - name: creating tomcat instance
       ec2_instance:
         key_name: vprokey
@@ -126,7 +128,7 @@
           name: MYSQL
           project: Vprofile-stack
           owner: VivekJain
-        
+
         security_group: "{{vprostack_SG_Details.group_id}}"
         vpc_subnet_id: "{{prisubid1}}"
       register: MYSQL_output
