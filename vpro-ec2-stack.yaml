@@ -37,7 +37,6 @@
         name: vprostack_sg1
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
-
         rules:
           - proto: tcp
             from_port: 80
@@ -48,3 +47,4 @@
             to_port: 22
             group_id: sg-0a6353e763debe4af
       register: vprostack_SG_Details
+      ignore_errors: True
