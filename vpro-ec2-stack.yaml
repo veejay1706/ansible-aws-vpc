@@ -35,6 +35,7 @@
     - name: EC2 security group
       ec2_group:
         name: vprostack_sg1
+        description: allow ssh and http from elb and bastion
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
         rules:
@@ -42,13 +43,17 @@
             from_port: 80
             to_port: 80
             group_id: "{{ELB_SG_Details.group_id}}"
-
+          - proto: tcp
+            from_port: 22
+            to_port: 22
+            group_id: "{{bastionSGID}}"
       register: vprostack_SG_Details
       ignore_errors: True
 
     - name: updating security group with its SG
       ec2_group:
         name: vprostack-sg
+        description: allow ssh and http from elb and bastion
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
         purge_rules: no
