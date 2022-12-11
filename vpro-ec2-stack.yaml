@@ -126,7 +126,7 @@
           name: MYSQL
           project: Vprofile-stack
           owner: VivekJain
-        exact_count: 1
+        
         security_group: "{{vprostack_SG_Details.group_id}}"
         vpc_subnet_id: "{{prisubid1}}"
       register: MYSQL_output
