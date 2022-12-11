@@ -40,6 +40,7 @@
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
         
+
         rules:
           - proto: tcp
             from_port: 80
@@ -58,7 +59,7 @@
         description: allow ssh and http from elb and bastion
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
-        purge_rules: no
+
         rules:
           - proto: all
             group_id: "{{vprostack_SG_Details.group_id}}"
