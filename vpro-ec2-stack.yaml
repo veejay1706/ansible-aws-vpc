@@ -63,3 +63,24 @@
         rules:
           - proto: all
             group_id: "{{vprostack_SG_Details.group_id}}"
+
+    - name: creating nginx instance
+      ec2:
+        key_name: vprokey
+        instance_type: t2.micro
+        region: "{{region}}"
+        image: "{{nginx_ami}}"
+        wait: yes
+        wait_timeout: 300
+        instance_tags:
+          name: web01
+          project: Vprofile-stack
+          owner: VivekJain
+        exact_count: 1
+        count_tag:
+          name: web01
+          project: Vprofile-stack
+          owner: VivekJain
+        group_id: "{{vprostack_SG_Details.group_id}}"
+        vpc_subnet_id: "{{prisubid1}}"
+      register: nginx_output

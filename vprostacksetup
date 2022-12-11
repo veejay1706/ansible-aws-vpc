@@ -1,6 +1,6 @@
 region: us-east-2
-nginx_ami: ami-0ff39345bd62c82a5
-tomcat_ami: ami-0ff39345bd62c82a5
-memcache_ami: ami-0ff39345bd62c82a5
-rmq_ami: ami-0ff39345bd62c82a5
-mysql_ami: ami-0ff39345bd62c82a5
+nginx_ami: ami-0283a57753b18025b
+tomcat_ami: ami-0283a57753b18025b
+memcache_ami: ami-0283a57753b18025b
+rmq_ami: ami-0283a57753b18025b
+mysql_ami: ami-0283a57753b18025b
