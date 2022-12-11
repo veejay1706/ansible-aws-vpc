@@ -47,7 +47,7 @@
           - proto: tcp
             from_port: 22
             to_port: 22
-            group_id: "{{bastionSGID}}"
+            group_id: sg-0a6353e763debe4af
       register: vprostack_SG_Details
     - name: updating security group with its SG
       ec2_group:

@@ -1,1 +1,2 @@
 "{{ELB_SG_Details.group_id}}"
+"{{bastionSGID}}"
