@@ -72,11 +72,11 @@
         image_id: "{{nginx_ami}}"
         wait: yes
         wait_timeout: 300
-        instance_tags:
+        tags:
           name: web01
           project: Vprofile-stack
           owner: VivekJain
         count: 1
-        group_id: "{{vprostack_SG_Details.group_id}}"
+        security_group: "{{vprostack_SG_Details.group_id}}"
         vpc_subnet_id: "{{prisubid1}}"
       register: nginx_output
