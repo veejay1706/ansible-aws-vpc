@@ -94,7 +94,6 @@
           name: tomcat
           project: Vprofile-stack
           owner: VivekJain
-
         security_group: "{{vprostack_SG_Details.group_id}}"
         vpc_subnet_id: "{{prisubid1}}"
       register: tomcat_output
