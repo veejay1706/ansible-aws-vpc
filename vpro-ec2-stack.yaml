@@ -65,7 +65,7 @@
             group_id: "{{vprostack_SG_Details.group_id}}"
 
     - name: creating nginx instance
-      ec2:
+      ec2_instance:
         key_name: vprokey
         instance_type: t2.micro
         region: "{{region}}"
