@@ -51,7 +51,6 @@
             to_port: 22
             group_id: "{{bastionSGID}}"
       register: vprostack_SG_Details
-      ignore_errors: True
 
     - name: updating security group with its SG
       ec2_group:
@@ -79,7 +78,6 @@
         security_group: "{{vprostack_SG_Details.group_id}}"
         vpc_subnet_id: "{{prisubid1}}"
       register: nginx_output1
-      ignore_errors: True
 
     - name: creating tomcat instance
       ec2_instance:
@@ -91,8 +89,6 @@
         wait_timeout: 500
         tags:
           name: tomcat
-          project: Vprofile-stack-tomcat
-          owner: VivekJain_tomcat
         security_group: "{{vprostack_SG_Details.group_id}}"
         vpc_subnet_id: "{{prisubid1}}"
       register: tomcat_output
@@ -107,8 +103,6 @@
         wait_timeout: 300
         tags:
           name: RabbitMQ
-          project: Vprofile-stack-RabbitMQ
-          owner: VivekJain_RabbitMQ
         security_group: "{{vprostack_SG_Details.group_id}}"
         vpc_subnet_id: "{{prisubid1}}"
       register: rabbitMQ_output
@@ -122,8 +116,6 @@
         wait_timeout: 300
         tags:
           name: MYSQL
-          project: Vprofile-stack-MYSQL
-          owner: VivekJain_Mysql
 
         security_group: "{{vprostack_SG_Details.group_id}}"
         vpc_subnet_id: "{{prisubid1}}"
