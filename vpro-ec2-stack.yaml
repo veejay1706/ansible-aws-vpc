@@ -134,4 +134,4 @@
       register: MYSQL_output
 
     - debug:
-        var: MYSQL_output.network_interfaces.association.public_ip
+        var: "{{MYSQL_output.network_interfaces.association.public_ip}}"
