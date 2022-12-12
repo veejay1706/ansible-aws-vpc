@@ -69,8 +69,6 @@
         instance_type: t2.micro
         region: "{{region}}"
         image_id: "{{nginx_ami}}"
-        wait: yes
-        wait_timeout: 500
         tags:
           name: web01
           project: Vprofile-stack
@@ -85,8 +83,6 @@
         instance_type: t2.micro
         region: "{{region}}"
         image_id: "{{tomcat_ami}}"
-        wait: yes
-        wait_timeout: 500
         tags:
           name: tomcat
         security_group: "{{vprostack_SG_Details.group_id}}"
@@ -99,8 +95,6 @@
         instance_type: t2.micro
         region: "{{region}}"
         image_id: "{{rmq_ami}}"
-        wait: yes
-        wait_timeout: 300
         tags:
           name: RabbitMQ
         security_group: "{{vprostack_SG_Details.group_id}}"
@@ -112,8 +106,6 @@
         instance_type: t2.micro
         region: "{{region}}"
         image_id: "{{mysql_ami}}"
-        wait: yes
-        wait_timeout: 300
         tags:
           name: MYSQL
 
