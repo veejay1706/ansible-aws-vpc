@@ -76,7 +76,6 @@
           name: web01
           project: Vprofile-stack
           owner: VivekJain
-        exact_count: 1
         security_group: "{{vprostack_SG_Details.group_id}}"
         vpc_subnet_id: "{{prisubid1}}"
       register: nginx_output1
@@ -110,12 +109,9 @@
           name: RabbitMQ
           project: Vprofile-stack-RabbitMQ
           owner: VivekJain_RabbitMQ
-        exact_count: 1
         security_group: "{{vprostack_SG_Details.group_id}}"
         vpc_subnet_id: "{{prisubid1}}"
       register: rabbitMQ_output
-
-
     - name: creating MYSQL instance
       ec2_instance:
         key_name: vprokey
