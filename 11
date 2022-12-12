@@ -98,7 +98,7 @@
         vpc_subnet_id: "{{prisubid1}}"
         assign_public_ip: yes
       register: tomcat_output
-     
+      state: present
 
     - name: creating rabbitMQ instance
       ec2_instance:
