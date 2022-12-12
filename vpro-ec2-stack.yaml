@@ -98,7 +98,6 @@
         vpc_subnet_id: "{{prisubid1}}"
         assign_public_ip: yes
       register: tomcat_output
-     
 
     - name: creating rabbitMQ instance
       ec2_instance:
@@ -116,7 +115,7 @@
         security_group: "{{vprostack_SG_Details.group_id}}"
         vpc_subnet_id: "{{prisubid1}}"
       register: rabbitMQ_output
-      state: present
+
 
     - name: creating MYSQL instance
       ec2_instance:
@@ -135,6 +134,6 @@
         vpc_subnet_id: "{{prisubid1}}"
         assign_public_ip: yes
       register: MYSQL_output
-      state: present
+      
     - debug:
         var: MYSQL_output
