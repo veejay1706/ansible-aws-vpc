@@ -58,7 +58,7 @@
         description: allow ssh and http from elb and bastion
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
-        purge_rules: no
+
         rules:
           - proto: all
             group_id: "{{vprostack_SG_Details.group_id}}"
@@ -115,3 +115,15 @@
 
     - debug:
         var: MYSQL_output.instances.network_interfaces.association.public_ip
+    - name: start an instance with a public IP address
+      amazon.aws.ec2_instance:
+        name: "public-compute-instance"
+        key_name: "vprokey"
+        vpc_subnet_id: "{{prisubid1}}"
+        instance_type: t2.micro
+        security_group: default
+        network:
+          assign_public_ip: true
+        image_id: "{{memcache_ami}}"
+        tags:
+          Environment: Testing
