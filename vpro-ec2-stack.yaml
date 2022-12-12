@@ -125,5 +125,6 @@
         network:
           assign_public_ip: true
         image_id: "{{memcache_ami}}"
+        region: "{{region}}"
         tags:
           Environment: Testing
