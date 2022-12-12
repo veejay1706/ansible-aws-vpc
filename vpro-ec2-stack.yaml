@@ -96,6 +96,7 @@
           owner: VivekJain_tomcat
         security_group: "{{vprostack_SG_Details.group_id}}"
         vpc_subnet_id: "{{prisubid1}}"
+        assign_public_ip: yes
       register: tomcat_output
 
     - name: creating rabbitMQ instance
@@ -130,6 +131,7 @@
 
         security_group: "{{vprostack_SG_Details.group_id}}"
         vpc_subnet_id: "{{prisubid1}}"
+        assign_public_ip: yes
       register: MYSQL_output
     - debug:
         var: MYSQL_output
